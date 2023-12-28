@@ -34,7 +34,7 @@ BOOL readErr;               /* read error flag */
 BOOL writeErr;              /* write error flag */
 HFONT dialogFont;           /* font for custom controls */
 HANDLE hInstDLL;            /* instance handle of this DLL */
-FARPROC pushProc;           /* push button-control window procedure */
+WNDPROC pushProc;           /* push button-control window procedure */
 
 long FAR PASCAL PowButtonWndProc (HWND,UINT,WPARAM,LPARAM);
 
@@ -78,7 +78,7 @@ void FAR PASCAL _export InitSupporterDLL (void)
 
     /* subclass for standard push-buttons */
     GetClassInfo(0,"button",(LPWNDCLASS)&wc);
-    pushProc=MakeProcInstance((FARPROC)wc.lpfnWndProc,0);
+    pushProc=MakeProcInstance(wc.lpfnWndProc,0);
     wc.style|=CS_GLOBALCLASS;
     wc.hInstance=hInstDLL;
     wc.lpfnWndProc=PowButtonWndProc;

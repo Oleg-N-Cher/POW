@@ -1,0 +1,12 @@
+Debug/
+Release/
+*.001
+*.dll
+*.exp
+*.lib
+*.ncb
+*.obj
+*.opt
+*.plg
+*.sym
+*.tmp

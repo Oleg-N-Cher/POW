@@ -430,12 +430,12 @@ extern HBITMAP heButSel;      /* selected help button */
 extern HBITMAP hNote;         /* note-sign */
 extern HBRUSH  hShadeB;       /* shade as brush */
 
-extern HBITMAP drwOp;         /* open drawer */
-extern HBITMAP drwOpGr;       /* open drawer, active */
-extern HBITMAP drwCl;         /* closed drawer */
-extern HBITMAP drvNet;        /* net drive */
-extern HBITMAP drvDisk;       /* floppy disk drive */
-extern HBITMAP drvHard;       /* hard drive */
+extern HICON drwOp;           /* open drawer */
+extern HICON drwOpGr;         /* open drawer, active */
+extern HICON drwCl;           /* closed drawer */
+extern HICON drvNet;          /* net drive */
+extern HICON drvDisk;         /* floppy disk drive */
+extern HICON drvHard;         /* hard drive */
 
 extern BOOL readOnlyWindow;   /* flag, if edit to be created shall be read-only */
 extern HWND msgWnd;           /* window handle of message window */

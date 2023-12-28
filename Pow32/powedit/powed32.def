@@ -4,9 +4,6 @@ DESCRIPTION  'Tiny Editor for Pow! (based on EDIT-Controls)'
 
 HEAPSIZE     63500
 
-CODE         PRELOAD MOVEABLE DISCARDABLE
-DATA         PRELOAD MOVEABLE SINGLE
-
 EXPORTS      InterfaceVersion
              NewEditWindow
              CloseEditWindow
