@@ -3261,7 +3261,7 @@ BOOL CExeFileDebugSection::CalculateTypeIndizes40(WORD symTyp, WORD symLen, CMyM
 {
 	DWORD actTypFilPos;
 	DWORD	typStaFilPos;
-	WORD  symInd;
+	WORD  symInd = 0;
 	WORD		numLefOff;
 	WORD		sTyp;
 	WORD		argCntW;
@@ -3489,7 +3489,7 @@ BOOL CExeFileDebugSection::CalculateTypeIndizes50(WORD symTyp, WORD symLen, CMyM
 	DWORD actTypFilPos;
 	DWORD	typStaFilPos;
 	DWORD argCntDW;
-	DWORD symInd;
+	DWORD symInd = 0;
 	WORD		sTyp;
 	WORD		numLefOff;
 	BYTE		namLen;

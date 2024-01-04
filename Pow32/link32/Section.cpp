@@ -336,7 +336,7 @@ BOOL CObjFileSection::ReadSecData(CMyMemFile *actObjRawDat, DWORD sekPos, CObjFi
 {
 	DWORD oldRelOff= 0;
  DWORD strTabOff;
-	WORD		actInd;
+	WORD		actInd = 0;
 	
 	// Vorsicht, wenn der secNam genau 8 Bytes groß ist, dann muß dafür gesorgt werden, 
 	// daß der String auch abgeschlossen wird. Es könnte sonst ein Fehler auftreten.
@@ -2108,7 +2108,7 @@ DWORD CExeFileExportSection::BuildExpFncSec(char *dllOrExeFilNam, WORD fAln)
   actObjFilSec= (CObjFileSection *)actSymEnt-> symObjFil-> secLst-> GetAt(actSymEnt-> actSymTab-> secNum - 1);
   expAdrTab[actExpOrd]= actObjFilSec-> actFrgEnt-> actExeSec-> virSecAdr +
                         actObjFilSec-> actFrgEnt-> secFrgOff + actSymEnt-> actSymTab-> val;
-  expOrdTab[actExpOrd]= actExpOrd;
+  expOrdTab[actExpOrd]= (WORD) actExpOrd;
   expNamPtrTab[actExpOrd]= actExpNamTabOff;
   symNam= actSymEnt-> expTabSymNam;
   expNamTab-> Write(symNam, strlen(symNam) + 1);

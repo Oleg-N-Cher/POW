@@ -303,16 +303,18 @@ BOOL CObj2Exe::InitLinker()
 	}
 
 	/***********************************/
- /*** Zuweisen des Startupsymbols ***/
+	/*** Zuweisen des Startupsymbols ***/
 	/***********************************/
 
- if (pubSymLst-> Lookup(startUpSym, (void *&)symBuf))
-  newExeFil-> textSec-> startUpSym= symBuf;
- else
- {
+	symBuf = NULL;
+	if (pubSymLst-> Lookup(startUpSym, (void *&)symBuf))
+		newExeFil-> textSec-> startUpSym= symBuf;
+	else
+	{
 		CString sUpSym("_");
 		sUpSym+= startUpSym;
-		
+
+		symBuf = NULL;
 		if (pubSymLst-> Lookup(sUpSym, (void *&)symBuf))
 			newExeFil-> textSec-> startUpSym= symBuf;
 		else
@@ -345,7 +347,8 @@ BOOL CObj2Exe::InitLinker()
 					CString nSymNam("_");
      nSymNam+= expFncLst[expFncNamInd];
 
-					if (!pubSymLst-> StringIsKeyPart(nSymNam.GetBuffer(20), (void *&)expFncSymEnt))
+					BOOL ret = pubSymLst-> StringIsKeyPart(nSymNam.GetBuffer(20), (void *&)expFncSymEnt);
+					if (!ret || (expFncSymEnt->symObjFil && expFncSymEnt->symObjFil->libObjFil))
 					{
 						WriteMessageToPow(ERR_MSGI_NO_EXP_SYM, expFncLst[expFncNamInd], NULL);
 						lnkOK= FALSE;
