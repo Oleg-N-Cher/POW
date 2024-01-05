@@ -40,7 +40,7 @@ BEGIN
   head:=NIL;
 END Init;
 
-PROCEDURE [_APICALL] AddDLLModule*(VAR name-:ARRAY OF CHAR; VAR done:BOOLEAN);
+PROCEDURE [_APICALL] AddDLLModule*(name-:ARRAY OF CHAR; VAR done:BOOLEAN);
 (* add a module to the list. Returns FALSE if this is not possible *)
 VAR
   ele:ListEle;

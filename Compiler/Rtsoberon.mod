@@ -136,7 +136,7 @@ VAR
 
 
 (** Utility functions for convenient string concatenation *)
-PROCEDURE AppendStr(VAR msg: ARRAY OF CHAR; VAR txt-: ARRAY OF CHAR);
+PROCEDURE AppendStr(VAR msg: ARRAY OF CHAR; txt-: ARRAY OF CHAR);
 BEGIN
   Str.Append(msg, txt);
 END AppendStr;
@@ -157,7 +157,7 @@ BEGIN
   Str.Append(msg, txt);
 END AppendLn;
 
-PROCEDURE ShowMsg(VAR msg-: ARRAY OF CHAR);
+PROCEDURE ShowMsg(msg-: ARRAY OF CHAR);
 BEGIN
   IF W.MessageBoxA(0, SYSTEM.ADR(msg), SYSTEM.ADR("debug msg"),
                    W.MB_ICONEXCLAMATION + W.MB_APPLMODAL) = 0 THEN END;

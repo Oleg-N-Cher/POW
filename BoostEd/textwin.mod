@@ -282,7 +282,7 @@ BEGIN
 END IsStrChar;
 
 
-PROCEDURE IsCommentStartAt(VAR txt-:ARRAY OF CHAR;
+PROCEDURE IsCommentStartAt(txt-:ARRAY OF CHAR;
                            inx:LONGINT):BOOLEAN;
 VAR
   sInx:LONGINT;
@@ -296,7 +296,7 @@ BEGIN
 END IsCommentStartAt;
 
 
-PROCEDURE (VAR win:WinDescT) WriteTextLine(VAR txt-:ARRAY OF CHAR;
+PROCEDURE (VAR win:WinDescT) WriteTextLine(txt-:ARRAY OF CHAR;
                                            len:LONGINT;
                                            isCommented:BOOLEAN;
                                            nesting:INTEGER;

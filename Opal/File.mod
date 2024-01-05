@@ -307,7 +307,7 @@ BEGIN
   END;
 END ReadLn;
 
-PROCEDURE WriteLn*(handle:Handle; VAR txt-:ARRAY OF CHAR; VAR resCode:RetCodeT);
+PROCEDURE WriteLn*(handle:Handle; txt-:ARRAY OF CHAR; VAR resCode:RetCodeT);
 (** The file specified by <handle> is regarded as a text file. The string passed 
     in <txt> is written to the file and terminated according to the operating 
     system conventions. OPAL for Windows uses the characters CR LF as the mark 
@@ -362,7 +362,7 @@ BEGIN
 END ReadBlock;
 
 PROCEDURE WriteBlock*(handle:Handle; 
-                      VAR data-:ARRAY OF SYSTEM.BYTE; 
+                      data-:ARRAY OF SYSTEM.BYTE; 
                       n:LONGINT; 
                       VAR resCode:RetCodeT);
 (** A block <n> bytes long is written to the file specified by <handle>. 
@@ -473,7 +473,7 @@ BEGIN
   END;
 END GetAccessDate;
 
-PROCEDURE SetModifyDate*(handle:Handle; VAR date-:ARRAY OF CHAR; VAR resCode:RetCodeT);
+PROCEDURE SetModifyDate*(handle:Handle; date-:ARRAY OF CHAR; VAR resCode:RetCodeT);
 (** The date of the last modification of the file specified by <handle> is set 
     to <date>. The format for the date is "DD.MM.YYYY  HH:MM:SS" (two blanks are required 
     between date and time) and the total length of the string is 20 characters.

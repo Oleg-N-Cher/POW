@@ -44,7 +44,7 @@ TYPE
 (**
   Returns the length of a zero terminated string in characters.
 *)
-PROCEDURE Length*(VAR t-:StringT):LONGINT;
+PROCEDURE Length*(t-:StringT):LONGINT;
 VAR
   i,maxlen:LONGINT;
 BEGIN
@@ -59,7 +59,7 @@ END Length;
   Returns position of first occurrance of character x in string t.
   If not found returns 0.
 *)
-PROCEDURE PosChar*(x:CHAR; VAR t-:StringT; start:LONGINT):LONGINT;
+PROCEDURE PosChar*(x:CHAR; t-:StringT; start:LONGINT):LONGINT;
 VAR
   maxl:LONGINT;
 BEGIN
@@ -73,7 +73,7 @@ END PosChar;
   Returns position of first occurrance of string pat in string t.
   If not found returns 0.
 *)
-PROCEDURE Pos*(VAR pat-:StringT; VAR t-:StringT; start:LONGINT):LONGINT;
+PROCEDURE Pos*(pat-,t-:StringT; start:LONGINT):LONGINT;
 VAR
   i,j,maxl,patLen:LONGINT;
 BEGIN
@@ -88,7 +88,7 @@ BEGIN
   IF j=patLen THEN RETURN i+1 ELSE RETURN 0 END;
 END Pos;
 
-PROCEDURE Copy*(VAR source-,dest:StringT; pos,n:LONGINT);
+PROCEDURE Copy*(source-:StringT; VAR dest:StringT; pos,n:LONGINT);
 VAR
   i,j,l1,l2:LONGINT;
 BEGIN
@@ -114,7 +114,7 @@ BEGIN
   dest[i]:=0X;
 END Copy;
 
-PROCEDURE Append*(VAR dest:StringT; VAR t-:StringT);
+PROCEDURE Append*(VAR dest:StringT; t-:StringT);
 VAR
   i,j,lSrc,lDest:LONGINT;
 BEGIN
@@ -516,7 +516,7 @@ END InsertChar;
   If the dest array is not long enough to hold the result, the string
   to be inserted is truncated to a size where insertion is possible.
 *)
-PROCEDURE Insert*(VAR source-:StringT; VAR dest:StringT; pos:LONGINT);
+PROCEDURE Insert*(source-:StringT; VAR dest:StringT; pos:LONGINT);
 VAR
   i,l,dif:LONGINT;         
 BEGIN

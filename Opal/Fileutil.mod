@@ -88,7 +88,7 @@ BEGIN
   END;
 END GetErrorMessage;
 
-PROCEDURE String2Date*(VAR dateStr-:ARRAY OF CHAR; VAR time:WinB.FILETIME);
+PROCEDURE String2Date*(dateStr-:ARRAY OF CHAR; VAR time:WinB.FILETIME);
 VAR
   sysTime:WinB.SYSTEMTIME;
   th:ARRAY 5 OF CHAR;

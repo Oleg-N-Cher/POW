@@ -36,7 +36,7 @@ BEGIN
   RETURN strN;
 END Count;
 
-PROCEDURE Parse*(VAR line-:ARRAY OF CHAR);
+PROCEDURE Parse*(line-:ARRAY OF CHAR);
 (** The string passed in <line> is broken up into individual arguments and replaces
     the original command line. Following calls to the function Str return the
     the individual elements found in <line>. *)

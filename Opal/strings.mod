@@ -36,7 +36,7 @@ TYPE
   StringT*=ARRAY OF CHAR;
   String*=POINTER TO StringT;
 
-PROCEDURE Length*(VAR t-:StringT):LONGINT;
+PROCEDURE Length*(t-:StringT):LONGINT;
 (** Returns the length of a zero terminated string in characters. *)
 VAR
   i,maxlen:LONGINT;
@@ -48,7 +48,7 @@ BEGIN
 END Length;
 
 PROCEDURE PosChar*(x:CHAR; 
-                   VAR t-:StringT; 
+                   t-:StringT; 
                    start:LONGINT (** Indicates the position starting from which 
                                      the search is to be carried out. If start is less 
                                      than one it is set to one. If start denotes a 
@@ -66,8 +66,7 @@ BEGIN
   IF (start<maxl) & (t[start]=x) THEN RETURN start+1 ELSE RETURN 0; END;
 END PosChar;
 
-PROCEDURE Pos*(VAR pattern-:StringT; 
-               VAR t-:StringT; 
+PROCEDURE Pos*(pattern-,t-:StringT; 
                start:LONGINT (** Indicates the position starting from which the search shall be 
                                  carried out. If start is less than one it is set to one. If start 
                                  denotes a position beyond the end of t the function returns zero. *)
@@ -89,7 +88,7 @@ BEGIN
   IF j=patLen THEN RETURN i+1 ELSE RETURN 0 END;
 END Pos;
 
-PROCEDURE Copy*(VAR source-,dest:StringT; 
+PROCEDURE Copy*(source-:StringT; VAR dest:StringT;
                 pos,        (** character position of the source fragment *)
                 n:LONGINT   (** length of the source fragment *)
                );
@@ -125,7 +124,7 @@ BEGIN
   dest[i]:=0X;
 END Copy;
 
-PROCEDURE Append*(VAR dest:StringT; VAR src-:StringT);
+PROCEDURE Append*(VAR dest:StringT; src-:StringT);
 (** The string <src> is appended to the string <dest>. *)
 VAR
   i,j,lSrc,lDest:LONGINT;
@@ -587,7 +586,7 @@ BEGIN
   END;
 END InsertChar;
 
-PROCEDURE Insert*(VAR source-:StringT; VAR dest:StringT; pos:LONGINT);
+PROCEDURE Insert*(source-:StringT; VAR dest:StringT; pos:LONGINT);
 (** The string <source> is inserted into the string <dest> at the position <pos>. 
     If the maximum length of <dest> is insufficient to store the result only 
     the part of <source> fitting in <dest> is inserted. *)

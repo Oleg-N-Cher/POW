@@ -252,7 +252,7 @@ MODULE RTSOberon;
  * UTILITY FUNCTIONS FOR Halt
  *
  ******************************************************************************)
-PROCEDURE AppendStr(VAR msg: ARRAY OF CHAR; VAR txt-: ARRAY OF CHAR);
+PROCEDURE AppendStr(VAR msg: ARRAY OF CHAR; txt-: ARRAY OF CHAR);
 BEGIN
   Str.Append(msg, txt);
 END AppendStr;
@@ -280,7 +280,7 @@ END AppendLn;
  *
  ******************************************************************************)
 
-PROCEDURE ShowMsg(VAR msg-: ARRAY OF CHAR);
+PROCEDURE ShowMsg(msg-: ARRAY OF CHAR);
   VAR r: LONGINT;
 BEGIN
   r := W.MessageBoxA(0, SYSTEM.ADR(msg), SYSTEM.ADR("debug msg"), W.MB_ICONEXCLAMATION + W.MB_APPLMODAL);
@@ -2555,7 +2555,7 @@ END TypetagToModRecName;
  * res        OUT result code: 1 = success, 0 = no luck, -1 codeName not found
  ******************************************************************************)
 
-PROCEDURE ModRecNameToTypetag*(VAR modName-, recName-, codeName-: ARRAY OF CHAR;
+PROCEDURE ModRecNameToTypetag*(modName-, recName-, codeName-: ARRAY OF CHAR;
                                VAR typetag: LONGINT; VAR res:INTEGER);
   VAR
     i:    LONGINT;

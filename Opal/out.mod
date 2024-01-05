@@ -25,7 +25,7 @@ VAR
   app:I.InOutAppP;
   ioPane:InOut.InOut;
 
-PROCEDURE ^String*(VAR str-:ARRAY OF CHAR);
+PROCEDURE ^String*(str-:ARRAY OF CHAR);
 PROCEDURE ^Int*(i,n:LONGINT);
 PROCEDURE ^Real*(x:LONGREAL; n:INTEGER);
 
@@ -303,7 +303,7 @@ BEGIN
   ioPane.lp.SetScreenUpdate(x);
 END SetScreenUpdate;
 
-PROCEDURE String*(VAR str-:ARRAY OF CHAR);
+PROCEDURE String*(str-:ARRAY OF CHAR);
 (** The string <str> is displayed. *)
 BEGIN
   ioPane.lp.WriteStr(str);

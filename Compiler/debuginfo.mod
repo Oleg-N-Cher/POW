@@ -70,7 +70,7 @@ BEGIN
   END;
 END Write;
 
-PROCEDURE Init*(versn:INTEGER; VAR objectFileName-:ARRAY OF CHAR);
+PROCEDURE Init*(versn:INTEGER; objectFileName-:ARRAY OF CHAR);
 BEGIN
   version:=versn;
   CASE version OF

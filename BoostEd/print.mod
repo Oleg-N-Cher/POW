@@ -198,7 +198,7 @@ END StartNewPage;
 
 PROCEDURE PrintLine(lineNr    : LONGINT;
                     VAR pageNr: INTEGER;
-                    VAR text- : ARRAY OF CHAR; (* Text             *)
+                    text-     : ARRAY OF CHAR; (* Text *)
                     VAR yPos  : LONGINT);
 (* Zeile drucken *)
 

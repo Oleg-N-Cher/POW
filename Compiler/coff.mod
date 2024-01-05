@@ -261,7 +261,7 @@ BEGIN
   OPM.Err(code);
 END Err;
 
-PROCEDURE MakeSectionName(VAR modName-,extName-,result:ARRAY OF CHAR);
+PROCEDURE MakeSectionName(modName-,extName-:ARRAY OF CHAR; VAR result:ARRAY OF CHAR);
 VAR
   i,j:LONGINT;
 BEGIN
@@ -327,7 +327,7 @@ BEGIN
   WHILE (globObjLen MOD 4)#0 DO WriteObjByte(0) END;
 END WriteObjAlignment;
 
-PROCEDURE WriteDataBlock*(VAR data-:ARRAY OF CHAR; length:LONGINT);
+PROCEDURE WriteDataBlock*(data-:ARRAY OF CHAR; length:LONGINT);
 (* write a block of data to the object file at the current position *)
 VAR
   i:LONGINT;
@@ -394,7 +394,7 @@ BEGIN
   WriteDataBlock(stringTable,stringLen);
 END WriteStringTable;
 
-PROCEDURE NewString*(VAR txt-:ARRAY OF CHAR; VAR offs:LONGINT);
+PROCEDURE NewString*(txt-:ARRAY OF CHAR; VAR offs:LONGINT);
 (* Add a string to the string table *)
 VAR
   i:LONGINT;
@@ -582,7 +582,7 @@ BEGIN
   END;
 END WriteCoffHeader;
 
-PROCEDURE WriteSymbol*(VAR name-:ARRAY OF CHAR;
+PROCEDURE WriteSymbol*(name-:ARRAY OF CHAR;
                        value:LONGINT;
                        sectionNr:INTEGER; (* one-based index into section table *)
                        type:INTEGER; (* use at least 20H (function) and 0H (not a function) *)
@@ -623,7 +623,7 @@ BEGIN
   WriteObjWord(0);
 END WriteSymbolAuxProc;
 
-PROCEDURE WriteSymbolAuxFileName*(VAR fileName-:ARRAY OF CHAR);
+PROCEDURE WriteSymbolAuxFileName*(fileName-:ARRAY OF CHAR);
 (* write auxiliary entries into the symbol table defining the source file name;
    the number of entries written is (Length(fileName)+17) DIV 18 *)
 VAR
@@ -811,7 +811,7 @@ BEGIN
   END;
 END AddImportedProc;
 
-PROCEDURE AddRtsProc*(VAR name-:ARRAY OF CHAR; VAR symbolTableInx:LONGINT);
+PROCEDURE AddRtsProc*(name-:ARRAY OF CHAR; VAR symbolTableInx:LONGINT);
 (*Add an imported procedure to the list for symbol table generation.
   The zero based index the item will have in the symbol table is returned in symbolTableInx.
   Must not be called any more when WriteCoffHeader has been called.
@@ -1198,14 +1198,14 @@ BEGIN
   WriteFixup(symTableFixup+4,nSymbols);
 END WriteSymbolTable;
 
-PROCEDURE WriteCode*(VAR code-:ARRAY OF CHAR; size:LONGINT);
+PROCEDURE WriteCode*(code-:ARRAY OF CHAR; size:LONGINT);
 (* write the code block and fix file pointer references *)
 BEGIN
   WriteFixup(codeFixup,globObjLen);
   WriteDataBlock(code,size);
 END WriteCode;
 
-PROCEDURE WriteConst*(VAR data-:ARRAY OF CHAR; size:LONGINT);
+PROCEDURE WriteConst*(data-:ARRAY OF CHAR; size:LONGINT);
 (* write the initialized data block and fix file pointer references *)
 BEGIN
   WriteFixup(constFixup,globObjLen);

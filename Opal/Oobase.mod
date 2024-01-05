@@ -131,7 +131,7 @@ BEGIN
 END ObjToName;
 
 
-PROCEDURE NameToObj*(VAR codeName-,       (** the full pathname of the .EXE or .DLL file containig the implementation of the desired class *)
+PROCEDURE NameToObj*(codeName-,           (** the full pathname of the .EXE or .DLL file containig the implementation of the desired class *)
                      name-:ARRAY OF CHAR; (** the qualified class name in the form moduleName.className *)
                      VAR p:Object         (** returns a pointer to the object created or NIL if the call failed *)
                     );
@@ -543,7 +543,7 @@ BEGIN
 END GetSymbolInfo;
 
 
-PROCEDURE (obj:Object) GetFieldType*(VAR fieldName-:ARRAY OF CHAR; VAR typeCode:INTEGER; VAR done:BOOLEAN);
+PROCEDURE (obj:Object) GetFieldType*(fieldName-:ARRAY OF CHAR; VAR typeCode:INTEGER; VAR done:BOOLEAN);
 (** \HIDE *)
 (** Returns the type code of a specific record field; the specified field must
     be of a basic type or an array of char in which case typeCode is set to TYP_STRING. *)

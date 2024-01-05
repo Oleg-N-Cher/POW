@@ -423,13 +423,14 @@
           IF sym = ident THEN
             OPT.Insert(OPS.name, par); 
             OPS.Get(sym);
-            IF (mode = VarPar) & (sym = minus) THEN (*!+*)
+            IF (mode # VarPar) & (sym = minus) THEN (*!+*)
+              par^.mode:=VarPar; (* internally *)
               OPS.Get(sym); 
               par^.vis:=internalR
             ELSE
+              par^.mode:=mode;
               par^.vis:=internal
             END; (*!-*) 
-            par^.mode:=mode; 
             par^.link:=NIL;
             IF first = NIL THEN first:=par END ;
             IF firstPar = NIL THEN firstPar:=par ELSE last^.link:=par END ;

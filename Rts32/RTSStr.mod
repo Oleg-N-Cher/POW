@@ -5,7 +5,7 @@ TYPE
   StringT*=ARRAY OF CHAR;
   String*=POINTER TO StringT;
 
-PROCEDURE Length*(VAR t-:StringT):LONGINT;
+PROCEDURE Length*(t-:StringT):LONGINT;
 (** The return value of the function is the number of characters of the string <t>. *)
 VAR
   i,maxlen:LONGINT;
@@ -17,7 +17,7 @@ BEGIN
 END Length;
 
 
-PROCEDURE Append*(VAR dest:StringT; VAR src-:StringT);
+PROCEDURE Append*(VAR dest:StringT; src-:StringT);
 (** The string <src> is appended to the string <dest>. *)
 VAR
   i,j,lSrc,lDest:LONGINT;

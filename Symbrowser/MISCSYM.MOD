@@ -880,7 +880,7 @@ END ReadSymInformation;
 
 PROCEDURE (self: PParameter) DisplaySymInformation*();
 BEGIN
-  IF (self.kind = Symbol.varParSy) OR (self.kind = Symbol.rovarParSy) THEN
+  IF (self.kind = Symbol.varParSy) THEN
     Display.WriteStr('VAR ');
   END;
   IF (self.kind = Symbol.stvarParSy) THEN

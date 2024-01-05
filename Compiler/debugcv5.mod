@@ -247,7 +247,7 @@ END Append;
 (*======================================================================*)
 
     
-PROCEDURE SWriteStr(VAR txt-:ARRAY OF CHAR);
+PROCEDURE SWriteStr(txt-:ARRAY OF CHAR);
 VAR
   i,len:LONGINT;
 BEGIN
@@ -650,7 +650,7 @@ CONST
 VAR
   fieldListInx:TypeInxT;
 
-  PROCEDURE SubRecordLength(VAR name-:ARRAY OF CHAR):INTEGER;
+  PROCEDURE SubRecordLength(name-:ARRAY OF CHAR):INTEGER;
   VAR
     size:INTEGER;
   BEGIN
@@ -659,7 +659,7 @@ VAR
     RETURN size;
   END SubRecordLength;
 
-  PROCEDURE WriteSubRecord(offset:LONGINT; typeInx:TypeInxT; VAR name-:ARRAY OF CHAR);
+  PROCEDURE WriteSubRecord(offset:LONGINT; typeInx:TypeInxT; name-:ARRAY OF CHAR);
   VAR
     hobj:OPT.Object;
     pad:INTEGER;
@@ -706,7 +706,7 @@ VAR
   fieldListInx:TypeInxT;
   ptrStruct:OPT.Struct;
 
-  PROCEDURE SubRecordLength(VAR name-:ARRAY OF CHAR):INTEGER;
+  PROCEDURE SubRecordLength(name-:ARRAY OF CHAR):INTEGER;
   VAR
     size:INTEGER;
   BEGIN
@@ -715,7 +715,7 @@ VAR
     RETURN size;
   END SubRecordLength;
 
-  PROCEDURE WriteSubRecord(offset:LONGINT; typeInx:TypeInxT; VAR name-:ARRAY OF CHAR);
+  PROCEDURE WriteSubRecord(offset:LONGINT; typeInx:TypeInxT; name-:ARRAY OF CHAR);
   VAR
     hobj:OPT.Object;
     pad:INTEGER;
@@ -772,7 +772,7 @@ VAR
   ptrFieldType:TypeInxT;
   size:LONGINT;
 
-  PROCEDURE SubRecordLength(VAR name-:ARRAY OF CHAR):INTEGER;
+  PROCEDURE SubRecordLength(name-:ARRAY OF CHAR):INTEGER;
   VAR
     size:INTEGER;
   BEGIN
@@ -781,7 +781,7 @@ VAR
     RETURN size;
   END SubRecordLength;
 
-  PROCEDURE WriteSubRecord(offset:LONGINT; typeInx:TypeInxT; VAR name-:ARRAY OF CHAR);
+  PROCEDURE WriteSubRecord(offset:LONGINT; typeInx:TypeInxT; name-:ARRAY OF CHAR);
   VAR
     hobj:OPT.Object;
     pad:INTEGER;
@@ -1083,7 +1083,7 @@ BEGIN
   Coff.WriteObjAlignment;
 END Write;
 
-PROCEDURE Init*(VAR objectFileName-:ARRAY OF CHAR);
+PROCEDURE Init*(objectFileName-:ARRAY OF CHAR);
 BEGIN
   moduleBodyInfo:=OPT.NewDebugInfo();
   COPY(objectFileName,objFileName);

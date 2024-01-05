@@ -320,7 +320,7 @@
   END Append;
 
 (*----------------------------------------------------------------------------*)
-  PROCEDURE MakeGlobalName*(VAR modName-:ARRAY OF CHAR;
+  PROCEDURE MakeGlobalName*(modName-:ARRAY OF CHAR;
                             localName: ARRAY OF CHAR; 
                             VAR globalName: ARRAY OF CHAR);
   VAR 
@@ -332,7 +332,7 @@
     Append(localName,globalName);
   END MakeGlobalName;
 
-  PROCEDURE MakeCName*(VAR name-,linkSymbol:ARRAY OF CHAR);
+  PROCEDURE MakeCName*(name-:ARRAY OF CHAR; VAR linkSymbol:ARRAY OF CHAR);
   VAR
     i:INTEGER;
   BEGIN
@@ -345,12 +345,12 @@
     linkSymbol[i+1]:=0X;
   END MakeCName;
 
-  PROCEDURE SetModuleName*(VAR module-:ARRAY OF CHAR);
+  PROCEDURE SetModuleName*(module-:ARRAY OF CHAR);
   BEGIN
     COPY(module,moduleName);
   END SetModuleName;
   
-  PROCEDURE SetSourceFile*(VAR fileName-:ARRAY OF CHAR);
+  PROCEDURE SetSourceFile*(fileName-:ARRAY OF CHAR);
   BEGIN
     COPY(fileName,sourceFile);
   END SetSourceFile;

@@ -340,7 +340,7 @@ END AddLine;
 
 (*************************************************************************************************)
 
-PROCEDURE (VAR text:TextT) BulkAddLine*(VAR txt-:ARRAY OF CHAR; len:LONGINT):BOOLEAN;
+PROCEDURE (VAR text:TextT) BulkAddLine*(txt-:ARRAY OF CHAR; len:LONGINT):BOOLEAN;
 (* fügt eine Zeile mit einer gegebenen Länge an den Text an, aktuelle Zeile wird nicht verändert *)
 (* Rückgabewert : TRUE (erfolgreich)                                                             *)
 
