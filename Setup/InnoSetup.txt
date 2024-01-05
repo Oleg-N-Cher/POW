@@ -1,0 +1,2 @@
+https://habr.com/ru/articles/255807/
+https://jazzteam.ru/technical-articles/manual-creating-an-installer-using-inno-setup/
