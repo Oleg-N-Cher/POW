@@ -1,5 +1,5 @@
 # Microsoft Developer Studio Project File - Name="_oberon32" - Package Owner=<4>
-# Microsoft Developer Studio Generated Build File, Format Version 5.00
+# Microsoft Developer Studio Generated Build File, Format Version 6.00
 # ** DO NOT EDIT **
 
 # TARGTYPE "Win32 (x86) Dynamic-Link Library" 0x0102
@@ -17,13 +17,12 @@ CFG=_oberon32 - Win32 Release
 !MESSAGE 
 !MESSAGE Possible choices for configuration are:
 !MESSAGE 
-!MESSAGE "_oberon32 - Win32 Release" (based on\
- "Win32 (x86) Dynamic-Link Library")
-!MESSAGE "_oberon32 - Win32 Debug" (based on\
- "Win32 (x86) Dynamic-Link Library")
+!MESSAGE "_oberon32 - Win32 Release" (based on "Win32 (x86) Dynamic-Link Library")
+!MESSAGE "_oberon32 - Win32 Debug" (based on "Win32 (x86) Dynamic-Link Library")
 !MESSAGE 
 
 # Begin Project
+# PROP AllowPerConfigDependencies 0
 # PROP Scc_ProjName ""
 # PROP Scc_LocalPath ""
 CPP=cl.exe
@@ -57,10 +56,8 @@ LINK32=link.exe
 # ADD LINK32 kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /nologo /entry:"MyDllEntryPoint" /subsystem:windows /dll /machine:I386
 # SUBTRACT LINK32 /incremental:yes
 # Begin Special Build Tool
-SOURCE=$(InputPath)
-PostBuild_Cmds=Copy Release\_oberon32.dll\
-   "..\Pow\Release\Oberon-2 (32-Bit).cll" 	Copy ..\..\Compiler\obrn32.dll\
-   ..\Pow\Release\*.*	Copy ..\..\Compiler\Oberon2.lic ..\Pow\Release\*.*
+SOURCE="$(InputPath)"
+PostBuild_Cmds=Copy Release\_oberon32.dll    "..\Pow\Release\Oberon-2 (32-Bit).cll" 	Copy ..\..\Compiler\obrn32.dll    ..\Pow\Release\*.*	Copy ..\..\Compiler\Oberon2.lic ..\Pow\Release\*.*
 # End Special Build Tool
 
 !ELSEIF  "$(CFG)" == "_oberon32 - Win32 Debug"
@@ -77,7 +74,7 @@ PostBuild_Cmds=Copy Release\_oberon32.dll\
 # PROP Ignore_Export_Lib 0
 # PROP Target_Dir ""
 # ADD BASE CPP /nologo /MTd /W3 /Gm /GX /Zi /Od /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /YX /c
-# ADD CPP /nologo /MDd /W3 /Gm /GX /Zi /Od /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /FR /YX /FD /c
+# ADD CPP /nologo /MDd /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /FR /YX /FD /c
 # ADD BASE MTL /nologo /D "_DEBUG" /win32
 # ADD MTL /nologo /D "_DEBUG" /mktyplib203 /win32
 # ADD BASE RSC /l 0x409 /d "_DEBUG"
@@ -87,13 +84,11 @@ BSC32=bscmake.exe
 # ADD BSC32 /nologo
 LINK32=link.exe
 # ADD BASE LINK32 kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /nologo /subsystem:windows /dll /debug /machine:I386
-# ADD LINK32 kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /nologo /base:"" /entry:"MyDllEntryPoint" /subsystem:windows /dll /pdb:none /debug /machine:I386
+# ADD LINK32 kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /nologo /entry:"MyDllEntryPoint" /subsystem:windows /dll /pdb:none /debug /machine:I386
 # Begin Special Build Tool
-SOURCE=$(InputPath)
+SOURCE="$(InputPath)"
 PostBuild_Desc=Copy
-PostBuild_Cmds=Copy Debug\_oberon32.dll "..\Pow\Debug\Oberon-2 (32-Bit).cll"\
-   	Copy ..\..\Compiler\obrn32.dll ..\Pow\Debug\*.*	Copy ..\..\Compiler\oberon2.lic\
-    ..\Pow\Debug\*.*
+PostBuild_Cmds=Copy Debug\_oberon32.dll "..\Pow\Debug\Oberon-2 (32-Bit).cll"    	Copy ..\..\Compiler\obrn32.dll ..\Pow\Debug\*.*	Copy ..\..\Compiler\oberon2.lic     ..\Pow\Debug\*.*
 # End Special Build Tool
 
 !ENDIF 

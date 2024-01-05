@@ -83,13 +83,6 @@ BOOL FAR FileExists (LPSTR pch)
  *                                                                        *
  **************************************************************************/
 
-// Define the hook procedure
-UINT CALLBACK OFNHookProcOldStyle (HWND hdlg, UINT uiMsg, WPARAM wParam, LPARAM lParam)
-{
-    // Implement your custom handling here if needed
-    return 0;
-}
-
 void FAR GetFileName (LPSTR lpstr,LPSTR capt,BOOL as,LPEXT ext,int exts,HWND parent)
 {
     int i;
@@ -122,9 +115,7 @@ void FAR GetFileName (LPSTR lpstr,LPSTR capt,BOOL as,LPEXT ext,int exts,HWND par
     ofn.lpstrFileTitle=title;
     ofn.nMaxFileTitle=sizeof(title);
     ofn.lpstrInitialDir=0;
-    ofn.Flags=OFN_ENABLEHOOK|OFN_PATHMUSTEXIST|OFN_HIDEREADONLY;
-    // Set the hook procedure
-    ofn.lpfnHook = OFNHookProcOldStyle;
+    ofn.Flags=OFN_PATHMUSTEXIST|OFN_HIDEREADONLY;
 
     if (exts>0)
         ofn.lpstrDefExt=&(ext[0].ext[2]);
