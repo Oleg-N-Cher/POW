@@ -112,6 +112,7 @@
     nofFwdPtr: INTEGER;
     FwdPtr: ARRAY 64 OF OPT.Struct;
     nofStat: LONGINT; (*!L*)
+    hasReturn: BOOLEAN;
 
   PROCEDURE^ Type(VAR typ, banned: OPT.Struct);
   PROCEDURE^ Expression(VAR x: OPT.Node);
@@ -1433,12 +1434,13 @@
         pos:=OPM.errpos
       ELSIF sym = return THEN 
         OPS.Get(sym);
-        IF sym < semicolon THEN Expression(x) END ;
+        IF sym < semicolon THEN Expression(x) END;
         IF level > 0 THEN 
           OPB.Return(x, OPT.topScope^.link)
         ELSE
           OPB.Return(x, NIL) (* not standard Oberon *) 
-        END ;
+        END;
+        hasReturn := TRUE;
         pos:=OPM.errpos
       END ;
       IF x # NIL THEN 
@@ -1581,14 +1583,17 @@
     (* change+ 14.11.95 Rel. 1.18 *)
     IF (sym # begin) & (sym # end) THEN Err(E.PROC_BEGIN_OR_END_EXPECTED) END;
     (* change- *)
+    hasReturn := FALSE;
     IF sym = begin THEN
       IF OPT.defModule THEN Err(E.NO_STATS_ALLOWED) END; (*!*)
       OPS.Get(sym); StatSeq(statseq)
     ELSE statseq:=NIL
-    END ;
+    END;
+    IF (OPT.topScope.link # NIL) & (OPT.topScope.link.typ # OPT.notyp)
+      & ~hasReturn THEN Err(E.FUNCTION_WITHOUT_RETURN) END;
     IF (level = 0) & (TDinit # NIL) THEN
       lastTDinit^.link:=statseq; statseq:=TDinit
-    END ;
+    END;
     CheckSym(end)
   END Block;
 

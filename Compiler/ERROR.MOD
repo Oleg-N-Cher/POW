@@ -137,6 +137,7 @@ CONST
   WITH_CLAUSE_NO_VAR*=130;
   LEN_WITHOUT_ARRAY*=131;
   LEN_DIMENSION_WRONG*=132;
+  FUNCTION_WITHOUT_RETURN*=133;
   SYSTEM_NOT_IMPORTED*=135;
   SYSFLAG_MISMATCH*=136;
   KEY_INCONSISTENT*=150;
@@ -361,6 +362,7 @@ BEGIN
   | 130:COPY('WITH clause does not specify a variable',msg);
   | 131:COPY('LEN not applied to array',msg);
   | 132:COPY('dimension in LEN too large or negative',msg);
+  | 133:COPY('function without RETURN',msg);
   | 135:COPY('SYSTEM not imported',msg);
   | 136:COPY("sysflag doesn't match",msg);
   | 150:COPY('key inconsistency of imported module',msg);
